@@ -1,1 +1,1 @@
-/home/rohit/hacks/selkie/README.md
+../README.md
