@@ -10,8 +10,8 @@ try:
     from fingerprint import fake
 except ImportError:
     import selkie.constants as constants
-    from selkie.containers import TransformedDict
-    from selkie.fingerprint import fake
+    from selkie.lib.containers import TransformedDict
+    from selkie.lib.fingerprint import fake
 
 class Plugins(object):
     def __init__(self, **kwargs):

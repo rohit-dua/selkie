@@ -24,14 +24,14 @@ Usage
 ---------------
 ```python
 import selkie
-driver = selkie.Driver()
 fingerprint_cookiejar = selkie.FingerprintCookiejar()
-driver.get('http://example.com', fingerprint_cookiejar = fingerprint_cookiejar)
+driver = selkie.Driver(fingerprint_cookiejar = fingerprint_cookiejar)
+driver.get('http://example.com')
 ```
 Each unique fingerprint can be saved as string.
 ```python
 fingerprint_cookiejar = selkie.FingerprintCookiejar()
-save_fingerprint = fingerprint_cookiejar.to_string  #save as string
+save_fingerprint = fingerprint_cookiejar.to_string()  #save as string
 
 fingerprint_cookiejar.from_string(save_fingerprint) #load from string
 ```
