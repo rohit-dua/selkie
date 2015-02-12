@@ -280,7 +280,7 @@ class HttpHeaders(BaseProvider):
             headers['User-Agent'] = fake.user_agent(fingerprint_cookiejar = fingerprint_cookiejar)
             if fingerprint_cookie != None:
                 fingerprint_cookie['userAgent'] = headers['User-Agent']
-        f = open(constants.db_path + "/lang_code.json")
+        f = open(constants.db_path + "/region_code.json")
         r = f.read()
         f.close()
         r = json.loads(r)
@@ -289,11 +289,11 @@ class HttpHeaders(BaseProvider):
         else:
             if fingerprint_cookie and 'location' in fingerprint_cookie:
                 try:
-                    region_code = r['region']['location']
+                    region_code = r[fingerprint_cookie['location']]
                 except:
-                    region_code = r['region'][random.choice(r['region'].keys())]
+                    region_code = r[random.choice(r.keys())]
             else:
-                region_code = r['region'][random.choice(r['region'].keys())]
+                region_code = r[random.choice(r.keys())]
             headers['Accept-Language'] = "en, en-US;q=0.%s, en-%s;q=0.%s" %(random.randint(2,9), region_code,  random.randint(2,9))
             if fingerprint_cookie:
                 fingerprint_cookie['Accept-Language'] = headers['Accept-Language']
