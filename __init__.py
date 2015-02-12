@@ -19,7 +19,10 @@ from PyQt4.QtNetwork import QNetworkCookie, QNetworkCookieJar
 from PyQt4.QtNetwork import QNetworkProxy
 from spynner import Browser
 
-import constants
+try:
+    import constants
+except ImportError:
+    import selkie.constants as constants
 from lib.dom import Navigator, Window, Screen, Document, Date, Plugins, MimeTypes
 from lib.extended_classes import ExtendedNetworkCookieJar, Header, NetworkManager
 from lib.fingerprint import fake

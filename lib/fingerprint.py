@@ -10,7 +10,10 @@ import re
 import sqlite3
 import json
 
-import constants
+try:
+    import constants
+except ImportError:
+    import selkie.constants as constants
 
 
 class Dom(BaseProvider):

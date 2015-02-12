@@ -4,8 +4,12 @@
 
 from PyQt4.QtNetwork import QNetworkAccessManager, QNetworkCookieJar
 
-from lib.containers import TransformedDict
-from lib.fingerprint import fake
+try:
+    from lib.containers import TransformedDict
+    from lib.fingerprint import fake
+except ImportError:
+    from selkie.lib.containers import TransformedDict
+    from selkie.lib.fingerprint import fake 
 
 
 class Header(TransformedDict):
